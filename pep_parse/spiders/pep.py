@@ -24,12 +24,11 @@ class PepSpider(scrapy.Spider):
         """
         Working with a separate PEP page.
         """
+        page = response.css('section[id=pep-page-section]')
+        title = response.css('h1.page-title::text').get()
         data = {
-            'number': int(response.css
-                          ('section[id=pep-page-section] li::text')
-                          [2].get().replace('PEP', '').strip()),
-            'name': response.css('h1.page-title::text'
-                                 ).get().partition('- ')[2],
-            'status': response.css('dt:contains("Status") + dd ::text').get(),
+            'number': int(page.css('li::text')[2].get().replace('PEP ', '')),
+            'name': title.partition('– ')[2],
+            'status': response.css('dt:contains("Status") + dd ::text').get()
         }
         yield PepParseItem(data)
