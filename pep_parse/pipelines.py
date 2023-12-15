@@ -28,9 +28,7 @@ class PepParsePipeline:
         """
         Creating a csv file.
         """
-        time_now = dt.datetime.now().strftime(
-            '%Y-%m-%d_%H-%M-%S'
-        )
+        time_now = dt.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
         filename = BASE_DIR/'results'/f'status_summary_{time_now}.csv'
         heading = ('Статус', 'Количество')
         total = 'Total'
