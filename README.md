@@ -4,8 +4,8 @@ https://github.com/pgphil86
 ```
 ![image](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
 ### Languages:
-### I. [Русский язык.]()
-### II. [English language.]()
+### I. [Русский язык.](https://github.com/pgphil86/scrapy_parser_pep?tab=readme-ov-file#i-проект-scrapy-parser-pep)
+### II. [English language.](https://github.com/pgphil86/scrapy_parser_pep?tab=readme-ov-file#ii-scrapy-parser-pep)
 ## I. Проект 'Scrapy Parser Pep'.
 
 ### Описание проекта.
@@ -36,7 +36,7 @@ pip install -r requirements.txt
 ```
 scrapy crawl pep
 ```
-[Вверх.]()
+[Вверх.](https://github.com/pgphil86/scrapy_parser_pep?tab=readme-ov-file#scrapy-parser-pep-created-by-pavel)
 ## II. 'Scrapy Parser Pep'.
 
 ### Description of the project.
@@ -67,4 +67,4 @@ Now we can start the project.
 ```
 scrapy crawl pep
 ```
-[Up.]()
+[Up.](https://github.com/pgphil86/scrapy_parser_pep?tab=readme-ov-file#scrapy-parser-pep-created-by-pavel)
