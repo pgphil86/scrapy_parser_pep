@@ -8,7 +8,8 @@ BASE_DIR = Path(__file__).parent.parent
 
 class PepParsePipeline:
     """
-    PEP documents with different statuses are summarized. At the end, a csv file is created.
+    PEP documents with different statuses are summarized.
+    At the end, a csv file is created.
     """
     def open_spider(self, spider):
         """
@@ -27,7 +28,9 @@ class PepParsePipeline:
         """
         Creating a csv file.
         """
-        time_now = dt.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        time_now = dt.datetime.now().strftime(
+            '%Y-%m-%d_%H-%M-%S'
+        )
         filename = BASE_DIR/'results'/f'status_summary_{time_now}.csv'
         heading = ('Статус', 'Количество')
         total = 'Total'

@@ -18,7 +18,7 @@ class PepSpider(scrapy.Spider):
         yield from response.follow_all(
             css='section[id=numerical-index] a[href^="pep-"]',
             callback=self.parse_pep
-            )
+        )
 
     def parse_pep(self, response):
         """
@@ -28,7 +28,8 @@ class PepSpider(scrapy.Spider):
             'number': int(response.css
                           ('section[id=pep-page-section] li::text')
                           [2].get().replace('PEP', '').strip()),
-            'name': response.css('h1.page-title::text').get().partition('- ')[2],
+            'name': response.css('h1.page-title::text'
+                                 ).get().partition('- ')[2],
             'status': response.css('dt:contains("Status") + dd ::text').get(),
         }
         yield PepParseItem(data)
