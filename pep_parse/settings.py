@@ -15,4 +15,4 @@ FEEDS = {
 ITEM_PIPELINES = {
     'pep_parse.pipelines.PepParsePipeline': 300,
 }
-PEP_URL = 'pep_parse.spiders' 
+PEP_URL = 'pep_parse.spiders'

@@ -26,7 +26,8 @@ class PepSpider(scrapy.Spider):
         """
         Working with a separate PEP page.
         """
-        title = re.search(PEP_REGULAR, response.css('h1.page-title::text').get())
+        title = re.search(PEP_REGULAR,
+                          response.css('h1.page-title::text').get())
         data = {
             'number': title.group('number'),
             'name': title.group('name'),
