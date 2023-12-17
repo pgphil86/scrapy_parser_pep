@@ -1,6 +1,8 @@
+import re
 import scrapy
 
 from pep_parse.items import PepParseItem
+from pep_parse.constants import PEP_DOMAIN, PEP_REGULAR
 
 
 class PepSpider(scrapy.Spider):
@@ -8,8 +10,8 @@ class PepSpider(scrapy.Spider):
     Spider for working with PEP documents.
     """
     name = 'pep'
-    allowed_domains = ['peps.python.org']
-    start_urls = ['https://peps.python.org/']
+    allowed_domains = [PEP_DOMAIN]
+    start_urls = [f'https://{PEP_DOMAIN}/']
 
     def parse(self, response):
         """
@@ -24,11 +26,10 @@ class PepSpider(scrapy.Spider):
         """
         Working with a separate PEP page.
         """
-        page = response.css('section[id=pep-page-section]')
-        title = response.css('h1.page-title::text').get()
+        title = re.search(PEP_REGULAR, response.css('h1.page-title::text').get())
         data = {
-            'number': int(page.css('li::text')[2].get().replace('PEP ', '')),
-            'name': title.partition('– ')[2],
+            'number': title.group('number'),
+            'name': title.group('name'),
             'status': response.css('dt:contains("Status") + dd ::text').get()
         }
         yield PepParseItem(data)
